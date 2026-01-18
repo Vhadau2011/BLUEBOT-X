@@ -22,11 +22,18 @@ const config = {
 }
 
 // --------------------
-// SESSION PATH
+// SESSION PATH (multi-session support)
 // --------------------
-const SESSION_ID = process.env.SESSION_ID || 'default'
+const SESSION_ID = process.env.SESSION_ID
+if (!SESSION_ID) {
+  console.error('❌ SESSION_ID not set in .env!')
+  process.exit(1)
+}
+
 const SESSION_PATH = path.join(__dirname, 'session', SESSION_ID)
 if (!fs.existsSync(SESSION_PATH)) fs.mkdirSync(SESSION_PATH, { recursive: true })
+
+console.log(`🟢 Using session: ${SESSION_ID}`)
 
 // --------------------
 // LOAD COMMANDS
