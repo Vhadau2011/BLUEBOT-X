@@ -1,0 +1,384 @@
+BLUEBOT-X CUSTOM LICENSE AGREEMENT
+
+Copyright © 2024 mudau_t. All Rights Reserved.
+
+================================================================================
+                        CUSTOM SOFTWARE LICENSE
+================================================================================
+
+Version: 2.0.0
+Effective Date: January 1, 2024
+Developer: mudau_t
+Contact: +27747815326
+Email: mudau_t@developer.com
+
+================================================================================
+                            PREAMBLE
+================================================================================
+
+This License Agreement ("Agreement") is a legal agreement between you (either
+an individual or a single entity, referred to as "Licensee" or "You") and
+mudau_t (referred to as "Developer" or "Licensor") for the software product
+identified above, which includes computer software and may include associated
+media, printed materials, and online or electronic documentation ("Software").
+
+BY INSTALLING, COPYING, OR OTHERWISE USING THE SOFTWARE, YOU AGREE TO BE BOUND
+BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS
+AGREEMENT, DO NOT INSTALL OR USE THE SOFTWARE.
+
+================================================================================
+                        1. GRANT OF LICENSE
+================================================================================
+
+Subject to the terms and conditions of this Agreement, the Developer hereby
+grants you a limited, non-exclusive, non-transferable, revocable license to:
+
+1.1 USE the Software for personal, educational, or commercial purposes.
+
+1.2 DEPLOY the Software on your own servers, hosting platforms, or cloud
+    infrastructure.
+
+1.3 CONFIGURE the Software according to your needs through provided
+    configuration files and environment variables.
+
+1.4 OPERATE the Software to provide services to yourself or third parties.
+
+================================================================================
+                        2. RESTRICTIONS
+================================================================================
+
+You are STRICTLY PROHIBITED from:
+
+2.1 MODIFICATION
+    - You MAY NOT modify, alter, adapt, or change any part of the Software's
+      source code.
+    - You MAY NOT create derivative works based on the Software.
+    - You MAY NOT reverse engineer, decompile, or disassemble the Software
+      except to the extent expressly permitted by applicable law.
+    - You MAY NOT add, remove, or modify any features or functionality.
+
+2.2 REDISTRIBUTION
+    - You MAY NOT distribute, sublicense, lease, rent, or lend the Software
+      or any modified versions.
+    - You MAY NOT make the Software available for download or access by
+      third parties.
+    - You MAY NOT include the Software in any software distribution or bundle.
+
+2.3 CREDITS AND ATTRIBUTION
+    - You MAY NOT remove, alter, or obscure any copyright notices, developer
+      credits, or proprietary legends.
+    - You MUST retain all developer attributions, including the name "mudau_t"
+      in all copies and substantial portions of the Software.
+    - You MAY NOT claim authorship or ownership of the Software.
+    - You MAY NOT represent the Software as your own work.
+
+2.4 COMMERCIAL RESTRICTIONS
+    - You MAY NOT sell, resell, or charge fees for the Software itself.
+    - You MAY NOT sublicense or transfer your rights under this Agreement.
+    - You MAY provide services using the Software, but not sell the Software.
+
+2.5 BRANDING
+    - You MAY NOT remove or alter the "BLUEBOT-X" name or branding.
+    - You MAY NOT rebrand the Software under a different name.
+    - You MAY NOT use the Developer's name or trademarks without permission.
+
+================================================================================
+                        3. INTELLECTUAL PROPERTY
+================================================================================
+
+3.1 OWNERSHIP
+    All rights, title, and interest in and to the Software, including all
+    intellectual property rights, remain exclusively with mudau_t.
+
+3.2 COPYRIGHT
+    The Software is protected by copyright laws and international copyright
+    treaties, as well as other intellectual property laws and treaties.
+
+3.3 TRADEMARKS
+    BLUEBOT-X and associated logos are trademarks of mudau_t. You may not
+    use these trademarks without prior written permission.
+
+3.4 RESERVATION OF RIGHTS
+    All rights not expressly granted in this Agreement are reserved by the
+    Developer.
+
+================================================================================
+                        4. DEVELOPER CREDITS
+================================================================================
+
+4.1 MANDATORY ATTRIBUTION
+    You MUST maintain the following attributions in all instances of the
+    Software:
+    
+    - Developer Name: mudau_t
+    - Copyright Notice: © 2024 mudau_t. All Rights Reserved.
+    - License Reference: Licensed under Custom License Agreement
+    - Contact Information: +27747815326
+
+4.2 DISPLAY REQUIREMENTS
+    Developer credits MUST be displayed:
+    - In the Software's startup/initialization sequence
+    - In the Software's about/info command output
+    - In any documentation you create about the Software
+    - In any public-facing interfaces of the Software
+
+4.3 PROHIBITION OF CREDIT REMOVAL
+    Any removal, alteration, or obscuring of developer credits constitutes a
+    material breach of this Agreement and will result in immediate termination
+    of your license.
+
+================================================================================
+                        5. TERM AND TERMINATION
+================================================================================
+
+5.1 TERM
+    This Agreement is effective from the date you first install or use the
+    Software and continues until terminated.
+
+5.2 TERMINATION BY YOU
+    You may terminate this Agreement at any time by ceasing all use of the
+    Software and destroying all copies in your possession or control.
+
+5.3 TERMINATION BY DEVELOPER
+    The Developer may terminate this Agreement immediately if you:
+    - Breach any term of this Agreement
+    - Modify the Software in violation of Section 2.1
+    - Remove or alter developer credits in violation of Section 2.3
+    - Redistribute the Software in violation of Section 2.2
+    - Engage in any prohibited activity under this Agreement
+
+5.4 EFFECT OF TERMINATION
+    Upon termination:
+    - Your license to use the Software immediately ceases
+    - You must cease all use of the Software
+    - You must destroy all copies of the Software in your possession
+    - You must remove all deployments of the Software
+    - Any continuing use constitutes copyright infringement
+
+5.5 SURVIVAL
+    Sections 3 (Intellectual Property), 6 (Disclaimer of Warranties),
+    7 (Limitation of Liability), and 9 (General Provisions) survive
+    termination of this Agreement.
+
+================================================================================
+                        6. DISCLAIMER OF WARRANTIES
+================================================================================
+
+6.1 "AS IS" BASIS
+    THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+6.2 NO GUARANTEE
+    The Developer does not warrant that:
+    - The Software will meet your requirements
+    - The Software will be uninterrupted, timely, secure, or error-free
+    - The results obtained from use of the Software will be accurate or reliable
+    - Any errors in the Software will be corrected
+
+6.3 THIRD-PARTY SERVICES
+    The Software may interact with third-party services (including WhatsApp).
+    The Developer makes no warranties regarding these third-party services
+    and is not responsible for their availability, functionality, or policies.
+
+6.4 WHATSAPP COMPLIANCE
+    The Developer does not guarantee that use of the Software complies with
+    WhatsApp's Terms of Service. You are solely responsible for ensuring
+    compliance with all applicable terms and conditions.
+
+================================================================================
+                        7. LIMITATION OF LIABILITY
+================================================================================
+
+7.1 NO LIABILITY
+    IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR ANY SPECIAL, INCIDENTAL,
+    INDIRECT, OR CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT
+    LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION,
+    LOSS OF BUSINESS INFORMATION, OR ANY OTHER PECUNIARY LOSS) ARISING OUT
+    OF THE USE OF OR INABILITY TO USE THE SOFTWARE.
+
+7.2 MAXIMUM LIABILITY
+    The Developer's total liability under this Agreement shall not exceed
+    the amount of $0.00 (zero dollars).
+
+7.3 ACCOUNT BANS
+    The Developer is not responsible or liable for any bans, suspensions,
+    or terminations of your WhatsApp account or any other third-party
+    service resulting from use of the Software.
+
+7.4 DATA LOSS
+    The Developer is not responsible for any data loss, corruption, or
+    security breaches that may occur through use of the Software.
+
+7.5 JURISDICTIONAL LIMITATIONS
+    Some jurisdictions do not allow the exclusion or limitation of liability
+    for consequential or incidental damages. In such jurisdictions, the
+    Developer's liability shall be limited to the greatest extent permitted
+    by law.
+
+================================================================================
+                        8. SUPPORT AND UPDATES
+================================================================================
+
+8.1 NO OBLIGATION
+    The Developer is under no obligation to provide support, maintenance,
+    updates, upgrades, or modifications to the Software.
+
+8.2 DISCRETIONARY SUPPORT
+    Any support provided is at the sole discretion of the Developer and may
+    be discontinued at any time without notice.
+
+8.3 UPDATES
+    The Developer may, but is not obligated to, provide updates to the
+    Software. Any updates provided are subject to this Agreement unless
+    accompanied by a separate license agreement.
+
+8.4 NO WARRANTY ON UPDATES
+    Updates, if provided, are provided "AS IS" without warranty of any kind.
+
+================================================================================
+                        9. GENERAL PROVISIONS
+================================================================================
+
+9.1 ENTIRE AGREEMENT
+    This Agreement constitutes the entire agreement between you and the
+    Developer regarding the Software and supersedes all prior or
+    contemporaneous understandings and agreements.
+
+9.2 AMENDMENTS
+    The Developer reserves the right to modify this Agreement at any time.
+    Continued use of the Software after such modifications constitutes
+    acceptance of the modified terms.
+
+9.3 SEVERABILITY
+    If any provision of this Agreement is held to be unenforceable or invalid,
+    that provision shall be enforced to the maximum extent possible, and the
+    other provisions shall remain in full force and effect.
+
+9.4 WAIVER
+    No waiver of any provision of this Agreement shall be deemed or shall
+    constitute a waiver of any other provision, nor shall any waiver
+    constitute a continuing waiver.
+
+9.5 GOVERNING LAW
+    This Agreement shall be governed by and construed in accordance with the
+    laws of South Africa, without regard to its conflict of law provisions.
+
+9.6 JURISDICTION
+    Any disputes arising under this Agreement shall be subject to the
+    exclusive jurisdiction of the courts of South Africa.
+
+9.7 ASSIGNMENT
+    You may not assign or transfer this Agreement or any rights granted
+    hereunder without the prior written consent of the Developer.
+
+9.8 EXPORT COMPLIANCE
+    You agree to comply with all applicable export and import laws and
+    regulations in your use of the Software.
+
+9.9 FORCE MAJEURE
+    The Developer shall not be liable for any failure or delay in performance
+    due to circumstances beyond its reasonable control.
+
+================================================================================
+                        10. ENFORCEMENT
+================================================================================
+
+10.1 VIOLATION CONSEQUENCES
+     Violation of any term of this Agreement will result in:
+     - Immediate termination of your license
+     - Legal action for copyright infringement
+     - Legal action for breach of contract
+     - Claims for damages and injunctive relief
+     - Permanent ban from all support and services
+     - Public disclosure of the violation
+
+10.2 MONITORING
+     The Developer reserves the right to monitor compliance with this
+     Agreement and may request proof of compliance at any time.
+
+10.3 REPORTING VIOLATIONS
+     If you become aware of any violation of this Agreement, please report
+     it to: mudau_t@developer.com or +27747815326
+
+10.4 LEGAL REMEDIES
+     The Developer reserves all legal remedies available under applicable
+     law for enforcement of this Agreement.
+
+================================================================================
+                        11. ACKNOWLEDGMENT
+================================================================================
+
+BY USING THE SOFTWARE, YOU ACKNOWLEDGE THAT:
+
+1. You have read and understood this Agreement
+2. You agree to be bound by its terms and conditions
+3. You understand the restrictions on modification
+4. You understand the requirement to maintain developer credits
+5. You accept the disclaimers and limitations of liability
+6. You understand the consequences of violation
+7. You agree to use the Software in compliance with all applicable laws
+
+================================================================================
+                        12. CONTACT INFORMATION
+================================================================================
+
+For questions about this Agreement or the Software, contact:
+
+Developer: mudau_t
+Phone: +27747815326
+Email: mudau_t@developer.com
+Location: South Africa
+
+For license violations or compliance issues:
+Email: legal@bluebot.com
+
+For technical support:
+Email: support@bluebot.com
+WhatsApp: +27747815326
+
+================================================================================
+                        13. SPECIAL NOTICES
+================================================================================
+
+13.1 WHATSAPP DISCLAIMER
+     This Software is not affiliated with, endorsed by, or sponsored by
+     WhatsApp Inc. or Facebook, Inc. WhatsApp is a trademark of WhatsApp Inc.
+
+13.2 UNOFFICIAL SOFTWARE
+     This is an unofficial third-party software that interacts with WhatsApp
+     through unofficial APIs. Use at your own risk.
+
+13.3 TERMS OF SERVICE
+     Using this Software may violate WhatsApp's Terms of Service. You are
+     solely responsible for any consequences, including account suspension
+     or termination.
+
+13.4 PRIVACY
+     The Software may have access to messages, contacts, and other data.
+     Ensure you understand the privacy implications before use.
+
+13.5 SECURITY
+     You are responsible for securing your deployment of the Software,
+     including session files and credentials.
+
+================================================================================
+                        14. ACCEPTANCE
+================================================================================
+
+BY INSTALLING, COPYING, OR USING THE SOFTWARE, YOU ACKNOWLEDGE THAT YOU HAVE
+READ THIS AGREEMENT, UNDERSTAND IT, AND AGREE TO BE BOUND BY ITS TERMS AND
+CONDITIONS.
+
+IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, YOU MUST NOT INSTALL,
+COPY, OR USE THE SOFTWARE.
+
+================================================================================
+
+END OF LICENSE AGREEMENT
+
+Copyright © 2024 mudau_t. All Rights Reserved.
+
+⚠️ MODIFICATION IS STRICTLY PROHIBITED ⚠️
+
+================================================================================

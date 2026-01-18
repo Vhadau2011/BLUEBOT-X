@@ -1,129 +1,120 @@
-require('dotenv').config()
-const fs = require('fs')
-const path = require('path')
-const Pino = require('pino')
-const {
-  default: makeWASocket,
-  useMultiFileAuthState,
-  DisconnectReason
-} = require('@whiskeysockets/baileys')
+import { Boom } from '@hapi/boom';
+import { DisconnectReason } from '@whiskeysockets/baileys';
+import chalk from 'chalk';
+import config from './config.js';
+import AuthHandler from './lib/auth.js';
+import MessageHandler from './lib/message.js';
+import { loadCommands } from './lib/loader.js';
 
-// --------------------
-// CONFIG
-// --------------------
-const config = {
-  OWNER: process.env.OWNER_NUMBER,
-  BOT_NAME: process.env.BOT_NAME || 'BLUEBOT-X',
-  OWNER_NAME: process.env.OWNER_NAME || 'Thendo',
-  PREFIX: process.env.PREFIX || '.',
-  MODS: process.env.MODS
-    ? process.env.MODS.split(',').map(n => n.trim())
-    : []
-}
+/**
+ * BLUEBOT-X - Advanced WhatsApp Bot
+ * Version: 2.0.0
+ * Developer: mudau_t
+ * 
+ * ⚠️ MODIFICATION IS STRICTLY PROHIBITED ⚠️
+ * 
+ * This bot is protected under a custom license.
+ * Any unauthorized modification, redistribution, or
+ * removal of credits is strictly forbidden.
+ */
 
-// --------------------
-// SESSION PATH (multi-session support)
-// --------------------
-const SESSION_ID = process.env.SESSION_ID
-if (!SESSION_ID) {
-  console.error('❌ SESSION_ID not set in .env!')
-  process.exit(1)
-}
+console.clear();
+console.log(chalk.cyan(`
+╔═══════════════════════════════════════════════════════════╗
+║                                                           ║
+║   ██████╗ ██╗     ██╗   ██╗███████╗██████╗  ██████╗ ████████╗   ║
+║   ██╔══██╗██║     ██║   ██║██╔════╝██╔══██╗██╔═══██╗╚══██╔══╝   ║
+║   ██████╔╝██║     ██║   ██║█████╗  ██████╔╝██║   ██║   ██║      ║
+║   ██╔══██╗██║     ██║   ██║██╔══╝  ██╔══██╗██║   ██║   ██║      ║
+║   ██████╔╝███████╗╚██████╔╝███████╗██████╔╝╚██████╔╝   ██║      ║
+║   ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚═════╝  ╚═════╝    ╚═╝      ║
+║                                                           ║
+║                    BLUEBOT-X v2.0.0                      ║
+║                  Developer: mudau_t                      ║
+║                                                           ║
+╚═══════════════════════════════════════════════════════════╝
+`));
 
-const SESSION_PATH = path.join(__dirname, 'session', SESSION_ID)
-if (!fs.existsSync(SESSION_PATH)) fs.mkdirSync(SESSION_PATH, { recursive: true })
+console.log(chalk.yellow('⚠️  MODIFICATION IS STRICTLY PROHIBITED ⚠️\n'));
+console.log(chalk.green('Starting BLUEBOT-X...\n'));
 
-console.log(`🟢 Using session: ${SESSION_ID}`)
+// Global variables
+global.config = config;
+global.commands = new Map();
+global.mods = config.MOD_NUMBERS || [];
+global.admins = config.ADMIN_NUMBERS || [];
 
-// --------------------
-// LOAD COMMANDS
-// --------------------
-const commands = []
-const cmdPath = path.join(__dirname, 'cmds')
-fs.readdirSync(cmdPath).forEach(file => {
-  if (file.endsWith('.js')) {
-    const cmd = require(path.join(cmdPath, file))
-    commands.push(cmd)
-  }
-})
+// Load all commands
+console.log(chalk.blue('📦 Loading commands...'));
+await loadCommands();
+console.log(chalk.green(`✓ Loaded ${global.commands.size} commands\n`));
 
-// --------------------
-// START BOT
-// --------------------
+// Start bot
 async function startBot() {
-  const { state, saveCreds } = await useMultiFileAuthState(SESSION_PATH)
+  const authHandler = new AuthHandler();
+  
+  try {
+    const sock = await authHandler.connect();
+    const messageHandler = new MessageHandler(sock);
 
-  const sock = makeWASocket({
-    logger: Pino({ level: 'silent' }),
-    auth: state,
-    printQRInTerminal: true
-  })
+    // Connection update handler
+    sock.ev.on('connection.update', async (update) => {
+      const { connection, lastDisconnect } = update;
 
-  sock.ev.on('creds.update', saveCreds)
+      if (connection === 'close') {
+        const shouldReconnect = 
+          lastDisconnect?.error instanceof Boom &&
+          lastDisconnect.error.output?.statusCode !== DisconnectReason.loggedOut;
 
-  sock.ev.on('connection.update', update => {
-    const { connection, lastDisconnect } = update
+        console.log(
+          chalk.red('Connection closed due to'),
+          lastDisconnect?.error,
+          chalk.yellow('Reconnecting:'),
+          shouldReconnect
+        );
 
-    if (connection === 'close') {
-      const reason = lastDisconnect?.error?.output?.statusCode
-      console.log('❌ Connection closed, reconnecting...', reason)
-      if (reason !== DisconnectReason.loggedOut) startBot()
-    }
+        if (shouldReconnect) {
+          setTimeout(() => startBot(), 3000);
+        }
+      } else if (connection === 'open') {
+        console.log(chalk.green('\n✓ Connected to WhatsApp successfully!\n'));
+        console.log(chalk.cyan('═══════════════════════════════════════'));
+        console.log(chalk.cyan('Bot Information:'));
+        console.log(chalk.cyan('═══════════════════════════════════════'));
+        console.log(chalk.white(`Bot Name: ${config.BOT_NAME}`));
+        console.log(chalk.white(`Prefix: ${config.PREFIX}`));
+        console.log(chalk.white(`Mode: ${config.MODE}`));
+        console.log(chalk.white(`Commands: ${global.commands.size}`));
+        console.log(chalk.white(`Developer: ${config.DEVELOPER}`));
+        console.log(chalk.cyan('═══════════════════════════════════════\n'));
+        console.log(chalk.green('✓ BLUEBOT-X is now running!\n'));
+      }
+    });
 
-    if (connection === 'open') {
-      console.log(`✅ ${config.BOT_NAME} connected successfully!`)
-    }
-  })
+    // Message handler
+    sock.ev.on('messages.upsert', async ({ messages }) => {
+      await messageHandler.handle(messages);
+    });
 
-  // --------------------
-  // MESSAGE HANDLER
-  // --------------------
-  sock.ev.on('messages.upsert', async ({ messages }) => {
-    const msg = messages[0]
-    if (!msg.message || msg.key.fromMe) return
+    // Group update handler
+    sock.ev.on('group-participants.update', async (update) => {
+      await messageHandler.handleGroupUpdate(update);
+    });
 
-    const from = msg.key.remoteJid
-    const sender = msg.key.participant || from
-    const senderNumber = sender.split('@')[0]
-
-    const text =
-      msg.message.conversation ||
-      msg.message.extendedTextMessage?.text ||
-      ''
-
-    if (!text.startsWith(config.PREFIX)) return
-
-    const args = text.slice(config.PREFIX.length).trim().split(/ +/)
-    const commandName = args.shift().toLowerCase()
-
-    const command = commands.find(cmd => cmd.name === commandName)
-    if (!command) return
-
-    const isOwner = senderNumber === config.OWNER
-    const isMod = config.MODS.includes(senderNumber)
-
-    try {
-      await command.execute({
-        sock,
-        msg,
-        args,
-        from,
-        sender: senderNumber,
-        isOwner,
-        isMod,
-        config,
-        commands
-      })
-    } catch (err) {
-      console.error(err)
-      await sock.sendMessage(from, {
-        text: '❌ Error running command'
-      })
-    }
-  })
+  } catch (error) {
+    console.error(chalk.red('Error starting bot:'), error);
+    setTimeout(() => startBot(), 5000);
+  }
 }
 
-// --------------------
-// RUN BOT
-// --------------------
-startBot()
+// Handle process errors
+process.on('unhandledRejection', (error) => {
+  console.error(chalk.red('Unhandled Rejection:'), error);
+});
+
+process.on('uncaughtException', (error) => {
+  console.error(chalk.red('Uncaught Exception:'), error);
+});
+
+// Start the bot
+startBot();

@@ -1,18 +1,42 @@
 {
   "name": "bluebot-x",
-  "version": "1.0.0",
-  "description": "WhatsApp bot using Baileys MD - BLUEBOT-X",
+  "version": "2.0.0",
+  "description": "Advanced WhatsApp Bot with 205+ Commands - Developed by mudau_t",
   "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node index.js"
   },
-  "keywords": ["whatsapp", "bot", "baileys", "bluebot-x"],
-  "author": "Thendo",
-  "license": "MIT",
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "baileys",
+    "bluebot",
+    "whatsapp-bot"
+  ],
+  "author": "mudau_t",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.8",
-    "dotenv": "^16.4.5",
-    "pino": "^8.17.2"
+    "@hapi/boom": "^10.0.1",
+    "pino": "^8.19.0",
+    "qrcode-terminal": "^0.12.0",
+    "dotenv": "^16.4.1",
+    "chalk": "^5.3.0",
+    "moment-timezone": "^0.5.45",
+    "axios": "^1.6.7",
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.2",
+    "form-data": "^4.0.0",
+    "file-type": "^19.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "jimp": "^0.22.12",
+    "fs-extra": "^11.2.0",
+    "node-cron": "^3.0.3",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

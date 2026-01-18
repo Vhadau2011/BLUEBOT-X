@@ -1,0 +1,236 @@
+.
+├── INSTALL.md
+├── LICENSE
+├── README.md
+├── STRUCTURE.txt
+├── commands
+│   ├── admin
+│   │   ├── add.js
+│   │   ├── antibot.js
+│   │   ├── antispam.js
+│   │   ├── antitoxic.js
+│   │   ├── autoread.js
+│   │   ├── autoreply.js
+│   │   ├── backup.js
+│   │   ├── ban.js
+│   │   ├── banlist.js
+│   │   ├── botsettings.js
+│   │   ├── clear.js
+│   │   ├── delete.js
+│   │   ├── demote.js
+│   │   ├── filter.js
+│   │   ├── filters.js
+│   │   ├── groupsettings.js
+│   │   ├── kick.js
+│   │   ├── lock.js
+│   │   ├── logs.js
+│   │   ├── mute.js
+│   │   ├── promote.js
+│   │   ├── report.js
+│   │   ├── restore.js
+│   │   ├── setgoodbye.js
+│   │   ├── setlang.js
+│   │   ├── setprefix.js
+│   │   ├── setwelcome.js
+│   │   ├── timezone.js
+│   │   ├── unban.js
+│   │   ├── unfilter.js
+│   │   ├── unlock.js
+│   │   ├── unmute.js
+│   │   ├── unwarn.js
+│   │   ├── warn.js
+│   │   └── warnings.js
+│   ├── dev
+│   │   ├── cache.js
+│   │   ├── clearlogs.js
+│   │   ├── cpu.js
+│   │   ├── database.js
+│   │   ├── debug.js
+│   │   ├── eval.js
+│   │   ├── inject.js
+│   │   ├── logs.js
+│   │   ├── memory.js
+│   │   ├── performance.js
+│   │   ├── reload.js
+│   │   ├── reloadall.js
+│   │   ├── shell.js
+│   │   ├── simulate.js
+│   │   └── test.js
+│   ├── fun
+│   │   ├── 8ball.js
+│   │   ├── adopt.js
+│   │   ├── bite.js
+│   │   ├── coinflip.js
+│   │   ├── compatibility.js
+│   │   ├── compliment.js
+│   │   ├── dare.js
+│   │   ├── dice.js
+│   │   ├── disown.js
+│   │   ├── divorce.js
+│   │   ├── fortune.js
+│   │   ├── gay.js
+│   │   ├── hack.js
+│   │   ├── horoscope.js
+│   │   ├── hug.js
+│   │   ├── insult.js
+│   │   ├── iq.js
+│   │   ├── kick.js
+│   │   ├── kill.js
+│   │   ├── kiss.js
+│   │   ├── lick.js
+│   │   ├── marry.js
+│   │   ├── pat.js
+│   │   ├── pickup.js
+│   │   ├── poke.js
+│   │   ├── punch.js
+│   │   ├── rate.js
+│   │   ├── roast.js
+│   │   ├── rps.js
+│   │   ├── ship.js
+│   │   ├── shoot.js
+│   │   ├── sigma.js
+│   │   ├── simp.js
+│   │   ├── slap.js
+│   │   ├── slot.js
+│   │   ├── stab.js
+│   │   ├── tickle.js
+│   │   ├── trivia.js
+│   │   ├── truth.js
+│   │   └── wyr.js
+│   ├── general
+│   │   ├── about.js
+│   │   ├── advice.js
+│   │   ├── alive.js
+│   │   ├── anime.js
+│   │   ├── balance.js
+│   │   ├── buy.js
+│   │   ├── calculator.js
+│   │   ├── contact.js
+│   │   ├── covid.js
+│   │   ├── crypto.js
+│   │   ├── currency.js
+│   │   ├── daily.js
+│   │   ├── dictionary.js
+│   │   ├── donate.js
+│   │   ├── fact.js
+│   │   ├── features.js
+│   │   ├── feedback.js
+│   │   ├── github.js
+│   │   ├── google.js
+│   │   ├── image.js
+│   │   ├── info.js
+│   │   ├── inventory.js
+│   │   ├── ip.js
+│   │   ├── joke.js
+│   │   ├── leaderboard.js
+│   │   ├── lyrics.js
+│   │   ├── meme.js
+│   │   ├── menu.js
+│   │   ├── mods.js
+│   │   ├── movie.js
+│   │   ├── news.js
+│   │   ├── npm.js
+│   │   ├── owner.js
+│   │   ├── ping.js
+│   │   ├── profile.js
+│   │   ├── qr.js
+│   │   ├── quote.js
+│   │   ├── rank.js
+│   │   ├── report.js
+│   │   ├── runtime.js
+│   │   ├── sell.js
+│   │   ├── server.js
+│   │   ├── shop.js
+│   │   ├── short.js
+│   │   ├── stats.js
+│   │   ├── support.js
+│   │   ├── time.js
+│   │   ├── transfer.js
+│   │   ├── translate.js
+│   │   ├── urban.js
+│   │   ├── version.js
+│   │   ├── weather.js
+│   │   └── wiki.js
+│   ├── group
+│   │   ├── active.js
+│   │   ├── admins.js
+│   │   ├── announce.js
+│   │   ├── antilink.js
+│   │   ├── goodbye.js
+│   │   ├── groupdesc.js
+│   │   ├── groupdp.js
+│   │   ├── groupinfo.js
+│   │   ├── grouplink.js
+│   │   ├── groupname.js
+│   │   ├── groupstats.js
+│   │   ├── hidetag.js
+│   │   ├── inactive.js
+│   │   ├── invite.js
+│   │   ├── join.js
+│   │   ├── poll.js
+│   │   ├── resetlink.js
+│   │   ├── tagall.js
+│   │   ├── vote.js
+│   │   └── welcome.js
+│   ├── mods
+│   │   ├── approve.js
+│   │   ├── approved.js
+│   │   ├── delnote.js
+│   │   ├── disapprove.js
+│   │   ├── lockdown.js
+│   │   ├── mutelist.js
+│   │   ├── muteuser.js
+│   │   ├── note.js
+│   │   ├── notes.js
+│   │   ├── restrict.js
+│   │   ├── restricted.js
+│   │   ├── rules.js
+│   │   ├── setrules.js
+│   │   ├── slowmode.js
+│   │   ├── unlockdown.js
+│   │   ├── unmuteuser.js
+│   │   ├── unrestrict.js
+│   │   ├── unverify.js
+│   │   ├── verified.js
+│   │   └── verify.js
+│   └── owner
+│       ├── addadmin.js
+│       ├── addmod.js
+│       ├── adminlist.js
+│       ├── autorespond.js
+│       ├── backup.js
+│       ├── block.js
+│       ├── blocklist.js
+│       ├── broadcast.js
+│       ├── broadcastgc.js
+│       ├── clearall.js
+│       ├── delrespond.js
+│       ├── leave.js
+│       ├── maintenance.js
+│       ├── modlist.js
+│       ├── removeadmin.js
+│       ├── removemod.js
+│       ├── restart.js
+│       ├── restore.js
+│       ├── setbotbio.js
+│       ├── setbotname.js
+│       ├── setbotpp.js
+│       ├── setbotstatus.js
+│       ├── setmode.js
+│       ├── shutdown.js
+│       ├── unblock.js
+│       └── update.js
+├── config.js
+├── generate_commands.py
+├── index.js
+├── lib
+│   ├── auth.js
+│   ├── loader.js
+│   ├── message.js
+│   └── session.js
+├── package.json
+├── pnpm-lock.yaml
+├── session
+└── start.sh
+
+10 directories, 223 files
