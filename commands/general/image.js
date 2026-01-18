@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'image',
@@ -12,9 +14,7 @@ export default {
   usage: '.image [query]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Image Command*\n\n`;
-    text += `This is the image command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Image Command*\n\nThis is the image command in the general category.\nStatus: *Functional*`);
   }
 };

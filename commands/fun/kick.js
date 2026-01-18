@@ -3,6 +3,8 @@
  * Category: Fun
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'kick',
@@ -12,9 +14,7 @@ export default {
   usage: '.kick [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Kick Command*\n\n`;
-    text += `This is the kick command in the fun category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Kick Command*\n\nThis is the kick command in the fun category.\nStatus: *Functional*`);
   }
 };

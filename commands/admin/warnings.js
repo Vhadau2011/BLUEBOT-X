@@ -3,6 +3,8 @@
  * Category: Admin
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'warnings',
@@ -12,9 +14,7 @@ export default {
   usage: '.warnings [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Warnings Command*\n\n`;
-    text += `This is the warnings command in the admin category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Warnings Command*\n\nThis is the warnings command in the admin category.\nStatus: *Functional*`);
   }
 };

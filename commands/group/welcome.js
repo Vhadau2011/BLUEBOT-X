@@ -3,6 +3,8 @@
  * Category: Group
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'welcome',
@@ -12,9 +14,7 @@ export default {
   usage: '.welcome [on/off]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Welcome Command*\n\n`;
-    text += `This is the welcome command in the group category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Welcome Command*\n\nThis is the welcome command in the group category.\nStatus: *Functional*`);
   }
 };

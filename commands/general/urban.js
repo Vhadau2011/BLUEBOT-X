@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'urban',
@@ -12,9 +14,12 @@ export default {
   usage: '.urban [word]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Urban Command*\n\n`;
-    text += `This is the urban command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Provide a word!');
+    try {
+        const res = await axios.get(`https://api.urbandictionary.com/v0/define?term=${args[0]}`);
+        const data = res.data.list[0];
+        await reply(`🏙️ *Urban: ${data.word}*\n\n📝 Definition: ${data.definition.replace(/[\[\]]/g, '')}\n💡 Example: ${data.example.replace(/[\[\]]/g, '')}`);
+    } catch { reply('❌ No definition found!'); }
   }
 };

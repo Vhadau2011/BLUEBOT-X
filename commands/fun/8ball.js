@@ -3,6 +3,8 @@
  * Category: Fun
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: '8ball',
@@ -12,12 +14,8 @@ export default {
   usage: '.8ball [question]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    const responses = [
-      'Yes', 'No', 'Maybe', 'Definitely', 'Absolutely not',
-      'Ask again later', 'Cannot predict now', 'Very doubtful',
-      'It is certain', 'Without a doubt', 'Most likely'
-    ];
-    const response = responses[Math.floor(Math.random() * responses.length)];
-    await reply(`🎱 *Magic 8 Ball says:* ${response}`);
+
+    const answers = ['Yes', 'No', 'Maybe', 'Definitely', 'Never', 'Ask again'];
+    await reply(`🎱 *8-Ball:* ${answers[Math.floor(Math.random() * answers.length)]}`);
   }
 };

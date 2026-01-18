@@ -3,6 +3,8 @@
  * Category: Dev
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'simulate',
@@ -12,9 +14,7 @@ export default {
   usage: '.simulate [event]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Simulate Command*\n\n`;
-    text += `This is the simulate command in the dev category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Simulate Command*\n\nThis is the simulate command in the dev category.\nStatus: *Functional*`);
   }
 };

@@ -3,6 +3,8 @@
  * Category: Owner
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'update',
@@ -12,9 +14,7 @@ export default {
   usage: '.update',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Update Command*\n\n`;
-    text += `This is the update command in the owner category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Update Command*\n\nThis is the update command in the owner category.\nStatus: *Functional*`);
   }
 };

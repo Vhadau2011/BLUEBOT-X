@@ -3,6 +3,8 @@
  * Category: Fun
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'gay',
@@ -12,9 +14,9 @@ export default {
   usage: '.gay [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Gay Command*\n\n`;
-    text += `This is the gay command in the fun category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    const rate = Math.floor(Math.random() * 101);
+    const user = msg.message.extendedTextMessage?.contextInfo?.mentionedJid[0] || sender;
+    await reply(`🏳️‍🌈 *Gay Rate for @${user.split('@')[0]}:* ${rate}%`, { mentions: [user] });
   }
 };

@@ -3,6 +3,8 @@
  * Category: Fun
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'coinflip',
@@ -12,7 +14,8 @@ export default {
   usage: '.coinflip',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    const result = Math.random() < 0.5 ? 'Heads' : 'Tails';
-    await reply(`🪙 Coin flip result: *${result}*`);
+
+    const res = Math.random() < 0.5 ? 'Heads' : 'Tails';
+    await reply(`🪙 *Result:* ${res}`);
   }
 };

@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'features',
@@ -12,9 +14,7 @@ export default {
   usage: '.features',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Features Command*\n\n`;
-    text += `This is the features command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Features Command*\n\nThis is the features command in the general category.\nStatus: *Functional*`);
   }
 };

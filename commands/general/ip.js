@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'ip',
@@ -12,9 +14,12 @@ export default {
   usage: '.ip [address]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Ip Command*\n\n`;
-    text += `This is the ip command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Provide an IP address!');
+    try {
+        const res = await axios.get(`http://ip-api.com/json/${args[0]}`);
+        const { country, regionName, city, isp, query } = res.data;
+        await reply(`🌐 *IP Info: ${query}*\n\n🌍 Country: ${country}\n🏙️ City: ${city}\n🏢 ISP: ${isp}`);
+    } catch { reply('❌ Failed to fetch IP info!'); }
   }
 };

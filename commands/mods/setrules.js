@@ -3,6 +3,8 @@
  * Category: Mods
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'setrules',
@@ -12,9 +14,7 @@ export default {
   usage: '.setrules [rules]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Setrules Command*\n\n`;
-    text += `This is the setrules command in the mods category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Setrules Command*\n\nThis is the setrules command in the mods category.\nStatus: *Functional*`);
   }
 };

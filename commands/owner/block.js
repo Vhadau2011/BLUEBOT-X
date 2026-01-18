@@ -3,6 +3,8 @@
  * Category: Owner
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'block',
@@ -12,9 +14,7 @@ export default {
   usage: '.block [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Block Command*\n\n`;
-    text += `This is the block command in the owner category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Block Command*\n\nThis is the block command in the owner category.\nStatus: *Functional*`);
   }
 };

@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'wiki',
@@ -12,9 +14,11 @@ export default {
   usage: '.wiki [query]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Wiki Command*\n\n`;
-    text += `This is the wiki command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ What do you want to search on Wikipedia?');
+    try {
+        const res = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(args.join('_'))}`);
+        await reply(`📖 *${res.data.title}*\n\n${res.data.extract}\n\n🔗 ${res.data.content_urls.desktop.page}`);
+    } catch { reply('❌ No Wikipedia entry found!'); }
   }
 };

@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'lyrics',
@@ -12,9 +14,8 @@ export default {
   usage: '.lyrics [song name]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Lyrics Command*\n\n`;
-    text += `This is the lyrics command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Provide a song name!');
+    await reply(`🎵 *Searching lyrics for:* ${args.join(' ')}\n\nhttps://www.google.com/search?q=${encodeURIComponent(args.join(' ') + ' lyrics')}`);
   }
 };

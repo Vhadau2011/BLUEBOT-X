@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'qr',
@@ -12,9 +14,9 @@ export default {
   usage: '.qr [text]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Qr Command*\n\n`;
-    text += `This is the qr command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Please provide text for the QR code!');
+    const url = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(args.join(' '))}`;
+    await sock.sendMessage(from, { image: { url }, caption: `✅ QR Code for: ${args.join(' ')}` }, { quoted: msg });
   }
 };

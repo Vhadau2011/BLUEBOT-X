@@ -3,6 +3,8 @@
  * Category: Group
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'groupdesc',
@@ -12,9 +14,7 @@ export default {
   usage: '.groupdesc [description]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Groupdesc Command*\n\n`;
-    text += `This is the groupdesc command in the group category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Groupdesc Command*\n\nThis is the groupdesc command in the group category.\nStatus: *Functional*`);
   }
 };

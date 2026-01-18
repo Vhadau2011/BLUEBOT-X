@@ -3,6 +3,8 @@
  * Category: Group
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'grouplink',
@@ -12,10 +14,10 @@ export default {
   usage: '.grouplink',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    if (!isGroup) return await reply('❌ This command is only for groups!');
-    if (!isBotGroupAdmin) return await reply('❌ I need to be admin to do this!');
-    
+
+    if (!isGroup) return reply('❌ Groups only!');
+    if (!isBotGroupAdmin) return reply('❌ I need admin!');
     const code = await sock.groupInviteCode(from);
-    await reply(`🔗 *Group Link:*\n\nhttps://chat.whatsapp.com/${code}`);
+    await reply(`🔗 *Group Link:* https://chat.whatsapp.com/${code}`);
   }
 };

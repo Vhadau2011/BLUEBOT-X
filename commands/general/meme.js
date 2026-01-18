@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'meme',
@@ -12,9 +14,10 @@ export default {
   usage: '.meme',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Meme Command*\n\n`;
-    text += `This is the meme command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    try {
+        const res = await axios.get('https://meme-api.com/gimme');
+        await sock.sendMessage(from, { image: { url: res.data.url }, caption: `🤣 *${res.data.title}*` }, { quoted: msg });
+    } catch { reply('❌ Failed to fetch meme!'); }
   }
 };

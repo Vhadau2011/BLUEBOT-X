@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'contact',
@@ -12,9 +14,7 @@ export default {
   usage: '.contact',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Contact Command*\n\n`;
-    text += `This is the contact command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`👨‍💻 *Developer:* mudau_t\n📱 *WhatsApp:* +27747815326\n📧 *Email:* mudau_t@developer.com`);
   }
 };

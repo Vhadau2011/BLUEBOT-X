@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'movie',
@@ -12,9 +14,11 @@ export default {
   usage: '.movie [title]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Movie Command*\n\n`;
-    text += `This is the movie command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Provide a movie title!');
+    try {
+        const res = await axios.get(`http://www.omdbapi.com/?t=${args[0]}&apikey=efabc41a`);
+        await sock.sendMessage(from, { image: { url: res.data.Poster }, caption: `🎬 *Movie: ${res.data.Title}*\n\n📅 Year: ${res.data.Year}\n🌟 Rating: ${res.data.imdbRating}\n🎭 Genre: ${res.data.Genre}\n📝 Plot: ${res.data.Plot}` }, { quoted: msg });
+    } catch { reply('❌ Movie not found!'); }
   }
 };

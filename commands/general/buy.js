@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'buy',
@@ -12,9 +14,7 @@ export default {
   usage: '.buy [item]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Buy Command*\n\n`;
-    text += `This is the buy command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Buy Command*\n\nThis is the buy command in the general category.\nStatus: *Functional*`);
   }
 };

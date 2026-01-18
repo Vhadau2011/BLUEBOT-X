@@ -3,6 +3,8 @@
  * Category: Mods
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'restricted',
@@ -12,9 +14,7 @@ export default {
   usage: '.restricted',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Restricted Command*\n\n`;
-    text += `This is the restricted command in the mods category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Restricted Command*\n\nThis is the restricted command in the mods category.\nStatus: *Functional*`);
   }
 };

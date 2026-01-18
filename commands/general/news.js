@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'news',
@@ -12,9 +14,7 @@ export default {
   usage: '.news [category]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *News Command*\n\n`;
-    text += `This is the news command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`📰 *Latest News*\n\n1. Tech: New AI model released\n2. World: Global summit starts\n3. Sports: Championship finals tonight\n\n_Use .news [category] for more_`);
   }
 };

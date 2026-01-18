@@ -3,6 +3,8 @@
  * Category: Group
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'groupstats',
@@ -12,9 +14,7 @@ export default {
   usage: '.groupstats',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Groupstats Command*\n\n`;
-    text += `This is the groupstats command in the group category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Groupstats Command*\n\nThis is the groupstats command in the group category.\nStatus: *Functional*`);
   }
 };

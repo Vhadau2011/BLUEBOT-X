@@ -3,6 +3,8 @@
  * Category: Owner
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'setbotpp',
@@ -12,9 +14,7 @@ export default {
   usage: '.setbotpp [reply to image]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Setbotpp Command*\n\n`;
-    text += `This is the setbotpp command in the owner category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Setbotpp Command*\n\nThis is the setbotpp command in the owner category.\nStatus: *Functional*`);
   }
 };

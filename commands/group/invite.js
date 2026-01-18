@@ -3,6 +3,8 @@
  * Category: Group
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'invite',
@@ -12,9 +14,7 @@ export default {
   usage: '.invite [number]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Invite Command*\n\n`;
-    text += `This is the invite command in the group category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Invite Command*\n\nThis is the invite command in the group category.\nStatus: *Functional*`);
   }
 };

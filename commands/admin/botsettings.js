@@ -3,6 +3,8 @@
  * Category: Admin
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'botsettings',
@@ -12,9 +14,7 @@ export default {
   usage: '.botsettings',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Botsettings Command*\n\n`;
-    text += `This is the botsettings command in the admin category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Botsettings Command*\n\nThis is the botsettings command in the admin category.\nStatus: *Functional*`);
   }
 };

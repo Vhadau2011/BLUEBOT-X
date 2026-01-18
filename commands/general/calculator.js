@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'calculator',
@@ -12,9 +14,11 @@ export default {
   usage: '.calculator [expression]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Calculator Command*\n\n`;
-    text += `This is the calculator command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Provide an expression!');
+    try {
+        const result = eval(args.join('').replace(/[^-()\d/*+.]/g, ''));
+        await reply(`🔢 *Result:* ${result}`);
+    } catch { reply('❌ Invalid expression!'); }
   }
 };

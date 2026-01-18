@@ -3,6 +3,8 @@
  * Category: Dev
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'eval',
@@ -12,9 +14,12 @@ export default {
   usage: '.eval [code]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Eval Command*\n\n`;
-    text += `This is the eval command in the dev category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!isOwner) return reply('❌ Owner only!');
+    try {
+        let evaled = await eval(args.join(' '));
+        if (typeof evaled !== 'string') evaled = await import('util').then(u => u.inspect(evaled));
+        await reply(evaled);
+    } catch (e) { await reply(String(e)); }
   }
 };

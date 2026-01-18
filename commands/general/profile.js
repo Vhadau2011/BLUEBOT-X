@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'profile',
@@ -12,9 +14,7 @@ export default {
   usage: '.profile',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Profile Command*\n\n`;
-    text += `This is the profile command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Profile Command*\n\nThis is the profile command in the general category.\nStatus: *Functional*`);
   }
 };

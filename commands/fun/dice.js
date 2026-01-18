@@ -3,6 +3,8 @@
  * Category: Fun
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'dice',
@@ -12,7 +14,8 @@ export default {
   usage: '.dice',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    const result = Math.floor(Math.random() * 6) + 1;
-    await reply(`🎲 You rolled: *${result}*`);
+
+    const res = Math.floor(Math.random() * 6) + 1;
+    await reply(`🎲 *You rolled:* ${res}`);
   }
 };

@@ -3,6 +3,8 @@
  * Category: Admin
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'setprefix',
@@ -12,9 +14,10 @@ export default {
   usage: '.setprefix [prefix]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Setprefix Command*\n\n`;
-    text += `This is the setprefix command in the admin category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!isOwner) return reply('❌ Owner only!');
+    if (!args[0]) return reply('❌ Provide a prefix!');
+    config.PREFIX = args[0];
+    await reply(`✅ *Prefix changed to:* ${args[0]}`);
   }
 };

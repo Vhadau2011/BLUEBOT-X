@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'google',
@@ -12,9 +14,8 @@ export default {
   usage: '.google [query]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Google Command*\n\n`;
-    text += `This is the google command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ What do you want to search?');
+    await reply(`🔍 *Searching Google for:* ${args.join(' ')}\n\nhttps://www.google.com/search?q=${encodeURIComponent(args.join(' '))}`);
   }
 };

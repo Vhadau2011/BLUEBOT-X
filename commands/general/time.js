@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'time',
@@ -12,9 +14,8 @@ export default {
   usage: '.time [timezone]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Time Command*\n\n`;
-    text += `This is the time command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    const now = new Date();
+    await reply(`🕒 *Current Time:*\n\n📅 Date: ${now.toDateString()}\n⏰ Time: ${now.toLocaleTimeString()}`);
   }
 };

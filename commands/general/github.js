@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'github',
@@ -12,9 +14,12 @@ export default {
   usage: '.github [username]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Github Command*\n\n`;
-    text += `This is the github command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Provide a GitHub username!');
+    try {
+        const res = await axios.get(`https://api.github.com/users/${args[0]}`);
+        const { login, bio, public_repos, followers, following, html_url, avatar_url } = res.data;
+        await sock.sendMessage(from, { image: { url: avatar_url }, caption: `🐙 *GitHub: ${login}*\n\n📝 Bio: ${bio || 'N/A'}\n📦 Repos: ${public_repos}\n👥 Followers: ${followers}\n👤 Following: ${following}\n🔗 ${html_url}` }, { quoted: msg });
+    } catch { reply('❌ User not found!'); }
   }
 };

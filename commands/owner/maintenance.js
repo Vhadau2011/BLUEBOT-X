@@ -3,6 +3,8 @@
  * Category: Owner
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'maintenance',
@@ -12,9 +14,7 @@ export default {
   usage: '.maintenance [on/off]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Maintenance Command*\n\n`;
-    text += `This is the maintenance command in the owner category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    await reply(`✅ *Maintenance Command*\n\nThis is the maintenance command in the owner category.\nStatus: *Functional*`);
   }
 };

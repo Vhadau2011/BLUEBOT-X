@@ -3,6 +3,8 @@
  * Category: General
  * Developer: mudau_t
  */
+import axios from 'axios';
+import config from '../../config.js';
 
 export default {
   name: 'short',
@@ -12,9 +14,11 @@ export default {
   usage: '.short [url]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-    let text = `✅ *Short Command*\n\n`;
-    text += `This is the short command in the general category.\n\n`;
-    text += `_Command is working correctly!_`;
-    await reply(text);
+
+    if (!args[0]) return reply('❌ Please provide a URL!');
+    try {
+        const res = await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`);
+        await reply(`🔗 *Shortened URL:* ${res.data}`);
+    } catch { reply('❌ Failed to shorten URL!'); }
   }
 };
