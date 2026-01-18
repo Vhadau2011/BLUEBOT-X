@@ -2,6 +2,7 @@
  * Daily Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.daily',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`🎁 *Daily Reward*\n\nYou claimed *500 coins*! Come back tomorrow.`);
+    try {
+await reply("🎁 *Daily Reward:* You got 500 coins!");
+    } catch (error) {
+      console.error(`Error in daily command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

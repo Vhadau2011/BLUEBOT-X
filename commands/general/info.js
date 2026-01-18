@@ -2,6 +2,7 @@
  * Info Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,17 +15,11 @@ export default {
   usage: '.info',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    const uptime = process.uptime();
-    const hours = Math.floor(uptime / 3600);
-    const minutes = Math.floor((uptime % 3600) / 60);
-    let text = `*BLUEBOT-X v2.0.0*\n\n`;
-    text += `🤖 *Bot Name:* ${config.BOT_NAME}\n`;
-    text += `👨‍💻 *Developer:* mudau_t\n`;
-    text += `⏱️ *Uptime:* ${hours}h ${minutes}m\n`;
-    text += `📦 *Commands:* ${global.commands.size}\n`;
-    text += `🌐 *Platform:* Node.js\n\n`;
-    text += `_Advanced WhatsApp automation solution._`;
-    await reply(text);
+    try {
+await reply(`🤖 *BLUEBOT-X*\nDev: mudau_t\nVer: 2.0.0`);
+    } catch (error) {
+      console.error(`Error in info command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

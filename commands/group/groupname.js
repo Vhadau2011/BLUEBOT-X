@@ -2,6 +2,7 @@
  * Groupname Command
  * Category: Group
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.groupname [name]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Groupname Command*\n\nThis is the groupname command in the group category.\nStatus: *Functional*`);
+    try {
+if (!isGroup) return reply("❌ Groups only!"); if (!isGroupAdmin && !isOwner) return reply("❌ Admins only!"); if (!args[0]) return reply("❌ Provide name!"); await sock.groupUpdateSubject(from, args.join(" ")); await reply("✅ Name updated!");
+    } catch (error) {
+      console.error(`Error in groupname command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

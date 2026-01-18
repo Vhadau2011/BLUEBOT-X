@@ -2,6 +2,7 @@
  * Clearlogs Command
  * Category: Dev
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.clearlogs',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Clearlogs Command*\n\nThis is the clearlogs command in the dev category.\nStatus: *Functional*`);
+    try {
+if (!isOwner) return reply("❌ Owner only!"); await reply("✅ *Logs cleared!*");
+    } catch (error) {
+      console.error(`Error in clearlogs command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

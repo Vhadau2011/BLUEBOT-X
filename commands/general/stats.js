@@ -2,6 +2,7 @@
  * Stats Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.stats',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`📊 *BLUEBOT-X Stats*\n\n👥 Total Users: 1,240\n💬 Total Messages: 45,890\n📦 Commands: 209\n⚡ Server: Active`);
+    try {
+await reply(`📊 *Stats*\n📦 Commands: ${global.commands.size}\n⚡ Status: Active`);
+    } catch (error) {
+      console.error(`Error in stats command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

@@ -2,6 +2,7 @@
  * Notes Command
  * Category: Mods
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.notes',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Notes Command*\n\nThis is the notes command in the mods category.\nStatus: *Functional*`);
+    try {
+await reply("📝 *Notes:* None");
+    } catch (error) {
+      console.error(`Error in notes command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

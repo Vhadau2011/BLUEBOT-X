@@ -2,6 +2,7 @@
  * Sell Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.sell [item]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Sell Command*\n\nThis is the sell command in the general category.\nStatus: *Functional*`);
+    try {
+if (!args[0]) return reply("❌ What to sell?"); await reply(`✅ *Sold:* ${args[0]}`);
+    } catch (error) {
+      console.error(`Error in sell command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

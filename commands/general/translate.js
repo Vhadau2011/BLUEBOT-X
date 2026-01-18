@@ -2,6 +2,7 @@
  * Translate Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,10 +15,11 @@ export default {
   usage: '.translate [lang] [text]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    if (args.length < 2) return reply('❌ Usage: .translate [lang] [text]\nExample: .translate fr hello');
-    const lang = args[0];
-    const text = args.slice(1).join(' ');
-    await reply(`🌐 *Translation (${lang}):*\n\nhttps://translate.google.com/?sl=auto&tl=${lang}&text=${encodeURIComponent(text)}&op=translate`);
+    try {
+if (args.length < 2) return reply("❌ Usage: .translate [lang] [text]"); await reply(`🌐 *Translate:* https://translate.google.com/?sl=auto&tl=${args[0]}&text=${encodeURIComponent(args.slice(1).join(" "))}`);
+    } catch (error) {
+      console.error(`Error in translate command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

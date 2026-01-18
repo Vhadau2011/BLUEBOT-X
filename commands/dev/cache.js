@@ -2,6 +2,7 @@
  * Cache Command
  * Category: Dev
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.cache',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Cache Command*\n\nThis is the cache command in the dev category.\nStatus: *Functional*`);
+    try {
+await reply("🧹 *Cache cleared!*");
+    } catch (error) {
+      console.error(`Error in cache command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

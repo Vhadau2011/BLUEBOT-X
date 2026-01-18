@@ -2,6 +2,7 @@
  * Coinflip Command
  * Category: Fun
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,8 +15,11 @@ export default {
   usage: '.coinflip',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    const res = Math.random() < 0.5 ? 'Heads' : 'Tails';
-    await reply(`🪙 *Result:* ${res}`);
+    try {
+await reply(`🪙 *Result:* ${Math.random()<0.5?"Heads":"Tails"}`);
+    } catch (error) {
+      console.error(`Error in coinflip command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

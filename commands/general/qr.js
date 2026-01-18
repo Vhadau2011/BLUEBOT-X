@@ -2,6 +2,7 @@
  * Qr Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,9 +15,11 @@ export default {
   usage: '.qr [text]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    if (!args[0]) return reply('❌ Please provide text for the QR code!');
-    const url = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(args.join(' '))}`;
-    await sock.sendMessage(from, { image: { url }, caption: `✅ QR Code for: ${args.join(' ')}` }, { quoted: msg });
+    try {
+if (!args[0]) return reply("❌ Provide text!"); await sock.sendMessage(from, { image: { url: `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(args.join(" "))}` }, caption: "✅ QR Generated" });
+    } catch (error) {
+      console.error(`Error in qr command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

@@ -2,6 +2,7 @@
  * Adminlist Command
  * Category: Owner
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.adminlist',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Adminlist Command*\n\nThis is the adminlist command in the owner category.\nStatus: *Functional*`);
+    try {
+await reply(`⚡ *Bot Admins:*\n${global.admins.join("\n") || "None"}`);
+    } catch (error) {
+      console.error(`Error in adminlist command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

@@ -2,6 +2,7 @@
  * Muteu ser Command
  * Category: Mods
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.muteuser [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Muteu ser Command*\n\nThis is the muteu ser command in the mods category.\nStatus: *Functional*`);
+    try {
+if (!isMod && !isOwner) return reply("❌ Mods only!"); await reply("🛡️ *Muteu ser!* (Action simulated)");
+    } catch (error) {
+      console.error(`Error in muteu ser command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

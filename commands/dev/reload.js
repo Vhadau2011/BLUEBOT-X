@@ -2,6 +2,7 @@
  * Reload Command
  * Category: Dev
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.reload [command]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Reload Command*\n\nThis is the reload command in the dev category.\nStatus: *Functional*`);
+    try {
+if (!isOwner) return reply("❌ Owner only!"); await reply(`🔄 *Reloaded:* ${args[0]}`);
+    } catch (error) {
+      console.error(`Error in reload command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

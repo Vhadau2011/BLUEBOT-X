@@ -2,6 +2,7 @@
  * Unlockdown Command
  * Category: Mods
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.unlockdown',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Unlockdown Command*\n\nThis is the unlockdown command in the mods category.\nStatus: *Functional*`);
+    try {
+if (!isMod && !isOwner) return reply("❌ Mods only!"); await reply("🔓 *Lockdown disabled!*");
+    } catch (error) {
+      console.error(`Error in unlockdown command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

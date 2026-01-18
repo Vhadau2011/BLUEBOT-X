@@ -2,6 +2,7 @@
  * Lyrics Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,8 +15,11 @@ export default {
   usage: '.lyrics [song name]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    if (!args[0]) return reply('❌ Provide a song name!');
-    await reply(`🎵 *Searching lyrics for:* ${args.join(' ')}\n\nhttps://www.google.com/search?q=${encodeURIComponent(args.join(' ') + ' lyrics')}`);
+    try {
+if (!args[0]) return reply("❌ Provide song!"); await reply(`🎵 *Lyrics:* https://www.google.com/search?q=${encodeURIComponent(args.join(" ") + " lyrics")}`);
+    } catch (error) {
+      console.error(`Error in lyrics command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

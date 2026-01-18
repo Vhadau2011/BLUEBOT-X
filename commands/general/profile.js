@@ -2,6 +2,7 @@
  * Profile Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.profile',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Profile Command*\n\nThis is the profile command in the general category.\nStatus: *Functional*`);
+    try {
+await reply(`👤 *Profile:* @${sender.split("@")[0]}`, { mentions: [sender] });
+    } catch (error) {
+      console.error(`Error in profile command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

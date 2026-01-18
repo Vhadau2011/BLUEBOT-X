@@ -2,6 +2,7 @@
  * Divorce Command
  * Category: Fun
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.divorce [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Divorce Command*\n\nThis is the divorce command in the fun category.\nStatus: *Functional*`);
+    try {
+await reply("💔 *It is over. I want a divorce.*");
+    } catch (error) {
+      console.error(`Error in divorce command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

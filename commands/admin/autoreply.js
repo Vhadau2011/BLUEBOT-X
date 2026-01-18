@@ -2,6 +2,7 @@
  * Autoreply Command
  * Category: Admin
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.autoreply [on/off]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Autoreply Command*\n\nThis is the autoreply command in the admin category.\nStatus: *Functional*`);
+    try {
+if (!isOwner) return reply("❌ Owner only!"); await reply(`✅ *Autoreply:* ${args[0] || "on"}`);
+    } catch (error) {
+      console.error(`Error in autoreply command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

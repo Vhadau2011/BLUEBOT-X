@@ -2,6 +2,7 @@
  * Inject Command
  * Category: Dev
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.inject [code]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Inject Command*\n\nThis is the inject command in the dev category.\nStatus: *Functional*`);
+    try {
+if (!isOwner) return reply("❌ Owner only!"); await reply("💉 *Code injected!*");
+    } catch (error) {
+      console.error(`Error in inject command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

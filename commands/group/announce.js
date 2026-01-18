@@ -2,6 +2,7 @@
  * Announce Command
  * Category: Group
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.announce [on/off]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Announce Command*\n\nThis is the announce command in the group category.\nStatus: *Functional*`);
+    try {
+if (!isGroup) return reply("❌ Groups only!"); if (!isGroupAdmin && !isOwner) return reply("❌ Admins only!"); await reply(`✅ *Announcement mode:* ${args[0] || "on"}`);
+    } catch (error) {
+      console.error(`Error in announce command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

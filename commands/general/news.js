@@ -2,6 +2,7 @@
  * News Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.news [category]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`📰 *Latest News*\n\n1. Tech: New AI model released\n2. World: Global summit starts\n3. Sports: Championship finals tonight\n\n_Use .news [category] for more_`);
+    try {
+await reply("✅ *News command is working!*");
+    } catch (error) {
+      console.error(`Error in news command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

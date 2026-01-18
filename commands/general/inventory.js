@@ -2,6 +2,7 @@
  * Inventory Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.inventory',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Inventory Command*\n\nThis is the inventory command in the general category.\nStatus: *Functional*`);
+    try {
+await reply("🎒 *Inventory:* Empty");
+    } catch (error) {
+      console.error(`Error in inventory command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

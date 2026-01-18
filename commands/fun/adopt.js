@@ -2,6 +2,7 @@
  * Adopt Command
  * Category: Fun
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.adopt [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Adopt Command*\n\nThis is the adopt command in the fun category.\nStatus: *Functional*`);
+    try {
+await reply("👶 *You are now my child.*");
+    } catch (error) {
+      console.error(`Error in adopt command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

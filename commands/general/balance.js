@@ -2,6 +2,7 @@
  * Balance Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.balance',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`💰 *Your Balance:* 1,500 coins`);
+    try {
+await reply("💰 *Balance:* 1,500 coins");
+    } catch (error) {
+      console.error(`Error in balance command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

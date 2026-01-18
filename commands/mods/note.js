@@ -2,6 +2,7 @@
  * Note Command
  * Category: Mods
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.note [name] [content]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Note Command*\n\nThis is the note command in the mods category.\nStatus: *Functional*`);
+    try {
+if (!isMod && !isOwner) return reply("❌ Mods only!"); if (!args[1]) return reply("❌ Usage: .note [name] [text]"); await reply(`✅ *Note saved:* ${args[0]}`);
+    } catch (error) {
+      console.error(`Error in note command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

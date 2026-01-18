@@ -2,6 +2,7 @@
  * About Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.about',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`🤖 *BLUEBOT-X*\n\nAn advanced WhatsApp bot developed by *mudau_t*.\nVersion: 2.0.0\nFeatures: 209+ Commands\nLicense: Custom (No Modification)`);
+    try {
+await reply("🤖 *BLUEBOT-X* is a powerful WhatsApp bot developed by mudau_t.");
+    } catch (error) {
+      console.error(`Error in about command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

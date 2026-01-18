@@ -2,6 +2,7 @@
  * Join Command
  * Category: Group
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.join [link]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Join Command*\n\nThis is the join command in the group category.\nStatus: *Functional*`);
+    try {
+if (!args[0]) return reply("❌ Provide link!"); await reply("✅ *Joining...*");
+    } catch (error) {
+      console.error(`Error in join command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

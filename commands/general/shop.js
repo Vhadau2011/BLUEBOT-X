@@ -2,6 +2,7 @@
  * Shop Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.shop',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`🛒 *BLUEBOT-X Shop*\n\n1. Premium Role - 5000 coins\n2. Custom Tag - 2000 coins\n3. XP Booster - 1000 coins`);
+    try {
+await reply("🛒 *Shop:*\n1. Premium - 5k\n2. Tag - 2k");
+    } catch (error) {
+      console.error(`Error in shop command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

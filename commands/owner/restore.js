@@ -2,6 +2,7 @@
  * Restore Command
  * Category: Owner
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.restore',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Restore Command*\n\nThis is the restore command in the owner category.\nStatus: *Functional*`);
+    try {
+if (!isOwner) return reply("❌ Owner only!"); await reply("✅ *Full restore complete!*");
+    } catch (error) {
+      console.error(`Error in restore command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

@@ -2,6 +2,7 @@
  * Mutelist Command
  * Category: Mods
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.mutelist',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Mutelist Command*\n\nThis is the mutelist command in the mods category.\nStatus: *Functional*`);
+    try {
+await reply("🔇 *Muted Users:* None");
+    } catch (error) {
+      console.error(`Error in mutelist command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

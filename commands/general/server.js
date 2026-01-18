@@ -2,6 +2,7 @@
  * Server Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.server',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`🖥️ *Server Info*\n\n💻 OS: Ubuntu 22.04\n🧠 RAM: 8GB\n💾 Disk: 160GB\n🌍 Region: South Africa`);
+    try {
+await reply("🖥️ *Server:* Ubuntu 22.04, 8GB RAM, Active.");
+    } catch (error) {
+      console.error(`Error in server command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

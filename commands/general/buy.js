@@ -2,6 +2,7 @@
  * Buy Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.buy [item]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Buy Command*\n\nThis is the buy command in the general category.\nStatus: *Functional*`);
+    try {
+if (!args[0]) return reply("❌ What to buy?"); await reply(`✅ *Bought:* ${args[0]}`);
+    } catch (error) {
+      console.error(`Error in buy command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

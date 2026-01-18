@@ -2,6 +2,7 @@
  * Time Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,8 +15,11 @@ export default {
   usage: '.time [timezone]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    const now = new Date();
-    await reply(`🕒 *Current Time:*\n\n📅 Date: ${now.toDateString()}\n⏰ Time: ${now.toLocaleTimeString()}`);
+    try {
+await reply(`🕒 *Time:* ${new Date().toLocaleString()}`);
+    } catch (error) {
+      console.error(`Error in time command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

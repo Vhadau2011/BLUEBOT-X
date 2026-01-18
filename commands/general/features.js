@@ -2,6 +2,7 @@
  * Features Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.features',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Features Command*\n\nThis is the features command in the general category.\nStatus: *Functional*`);
+    try {
+await reply("✨ *Features:* 209+ Commands, Pairing Code, Admin Tools.");
+    } catch (error) {
+      console.error(`Error in features command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

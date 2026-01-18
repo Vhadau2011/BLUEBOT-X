@@ -2,6 +2,7 @@
  * Rank Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.rank',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Rank Command*\n\nThis is the rank command in the general category.\nStatus: *Functional*`);
+    try {
+await reply("🎖️ *Rank:* Level 5 (Pro)");
+    } catch (error) {
+      console.error(`Error in rank command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

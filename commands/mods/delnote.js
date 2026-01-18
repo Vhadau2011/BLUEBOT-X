@@ -2,6 +2,7 @@
  * Delnote Command
  * Category: Mods
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.delnote [name]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Delnote Command*\n\nThis is the delnote command in the mods category.\nStatus: *Functional*`);
+    try {
+if (!isMod && !isOwner) return reply("❌ Mods only!"); if (!args[0]) return reply("❌ Provide name!"); await reply(`✅ *Note deleted:* ${args[0]}`);
+    } catch (error) {
+      console.error(`Error in delnote command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

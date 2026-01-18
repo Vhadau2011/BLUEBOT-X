@@ -2,6 +2,7 @@
  * Owner Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,8 +15,11 @@ export default {
   usage: '.owner',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + config.OWNER_NAME + '\n' + 'ORG:BLUEBOT-X Developer;\n' + 'TEL;type=CELL;type=VOICE;waid=' + config.OWNER_NUMBER + ':+ ' + config.OWNER_NUMBER + '\n' + 'END:VCARD';
-    await sock.sendMessage(from, { contacts: { displayName: config.OWNER_NAME, contacts: [{ vcard }] } }, { quoted: msg });
+    try {
+const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:" + config.OWNER_NAME + "\nTEL;type=CELL;type=VOICE;waid=" + config.OWNER_NUMBER + ":+" + config.OWNER_NUMBER + "\nEND:VCARD"; await sock.sendMessage(from, { contacts: { displayName: config.OWNER_NAME, contacts: [{ vcard }] } });
+    } catch (error) {
+      console.error(`Error in owner command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

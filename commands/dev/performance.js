@@ -2,6 +2,7 @@
  * Performance Command
  * Category: Dev
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.performance',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Performance Command*\n\nThis is the performance command in the dev category.\nStatus: *Functional*`);
+    try {
+await reply(`⚡ *Performance:* ${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB RAM used.`);
+    } catch (error) {
+      console.error(`Error in performance command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

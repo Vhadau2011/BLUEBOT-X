@@ -2,6 +2,7 @@
  * Kiss Command
  * Category: Fun
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.kiss [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Kiss Command*\n\nThis is the kiss command in the fun category.\nStatus: *Functional*`);
+    try {
+await reply("💋 *Muah!*");
+    } catch (error) {
+      console.error(`Error in kiss command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

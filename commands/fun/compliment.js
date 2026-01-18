@@ -2,6 +2,7 @@
  * Compliment Command
  * Category: Fun
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,7 +15,11 @@ export default {
   usage: '.compliment [@user]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    await reply(`✅ *Compliment Command*\n\nThis is the compliment command in the fun category.\nStatus: *Functional*`);
+    try {
+const c = ["You are awesome!", "You have a great smile.", "You are very smart."]; await reply(`✨ *Compliment:* ${c[Math.floor(Math.random()*c.length)]}`);
+    } catch (error) {
+      console.error(`Error in compliment command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };

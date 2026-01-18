@@ -2,6 +2,7 @@
  * Urban Command
  * Category: General
  * Developer: mudau_t
+ * Modification: NOT ALLOWED
  */
 import axios from 'axios';
 import config from '../../config.js';
@@ -14,12 +15,11 @@ export default {
   usage: '.urban [word]',
   
   async execute({ sock, msg, from, sender, args, reply, isGroup, isOwner, isAdmin, isMod, isGroupAdmin, isBotGroupAdmin }) {
-
-    if (!args[0]) return reply('❌ Provide a word!');
     try {
-        const res = await axios.get(`https://api.urbandictionary.com/v0/define?term=${args[0]}`);
-        const data = res.data.list[0];
-        await reply(`🏙️ *Urban: ${data.word}*\n\n📝 Definition: ${data.definition.replace(/[\[\]]/g, '')}\n💡 Example: ${data.example.replace(/[\[\]]/g, '')}`);
-    } catch { reply('❌ No definition found!'); }
+if (!args[0]) return reply("❌ Provide word!"); try { const res = await axios.get(`https://api.urbandictionary.com/v0/define?term=${args[0]}`); await reply(`🏙️ *${res.data.list[0].word}*\n📝 ${res.data.list[0].definition.replace(/[\\[\\]]/g, "")}`); } catch { reply("❌ Not found!"); }
+    } catch (error) {
+      console.error(`Error in urban command:`, error);
+      await reply(`❌ Error: ${error.message}`);
+    }
   }
 };
